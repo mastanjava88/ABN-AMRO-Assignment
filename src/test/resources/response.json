@@ -1,0 +1,19 @@
+{
+  "id": 2,
+  "name": "Mutton",
+  "price": 250.22,
+  "type": "NonVeg",
+  "cookingInstructions": "Marinate it with yogurt, ginger garlic paste, salt, turmeric and chili powder",
+  "ingredients": [
+    {
+      "id": 3,
+      "name": "chicken",
+      "quantity": "500g"
+    },
+    {
+      "id": 4,
+      "name": "mutton",
+      "quantity": "200g"
+    }
+  ]
+}
