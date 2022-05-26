@@ -10,7 +10,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "INGRIDIENT")
 @Data
-@NoArgsConstructor
 public class IngredientsEntity {
 
     @Id
