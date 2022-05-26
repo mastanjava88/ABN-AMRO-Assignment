@@ -55,7 +55,7 @@ public class RecipeControllerMockMvcTest {
                         .content(getRequestJson())
         );
 
-        resultActions.andExpect(status().isOk());
+        resultActions.andExpect(status().isCreated());
     }
 
     @Test

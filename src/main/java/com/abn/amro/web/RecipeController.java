@@ -45,7 +45,7 @@ public class RecipeController
                                                     throws ObjectCreationException {
         RecipeDTO created = service.createRecipe(recipe);
         logger.info("Recipe record created ");
-        return new ResponseEntity<RecipeDTO>(created, new HttpHeaders(), HttpStatus.OK);
+        return new ResponseEntity<RecipeDTO>(created, new HttpHeaders(), HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
