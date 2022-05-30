@@ -24,14 +24,23 @@ public class RecipeController
     private static final Logger logger = LoggerFactory.getLogger(RecipeController.class);
     @Autowired
     RecipeService service;
- 
+
+    /**
+     * Method to get the Recipe List.
+     * @return entity to the response List DTO
+     */
     @GetMapping("/list")
     public ResponseEntity<List<RecipeDTO>> getList() {
         List<RecipeDTO> list = service.getAllRecipes();
         logger.info("Recipe list  Size {}",list.size());
         return new ResponseEntity<List<RecipeDTO>>(list, new HttpHeaders(), HttpStatus.OK);
     }
- 
+
+    /**
+     * Method to get the Recipe DTO with respect to ID.
+     * @param id
+     * @return response  DTO
+     */
     @GetMapping("/get/{id}")
     public ResponseEntity<RecipeDTO> getRecipe(@PathVariable("id") Long id)
                                                     throws RecordNotFoundException {
@@ -39,7 +48,12 @@ public class RecipeController
         RecipeDTO entity = service.getRecipeById(id);
         return new ResponseEntity<RecipeDTO>(entity, new HttpHeaders(), HttpStatus.OK);
     }
- 
+
+    /**
+     * Method to add the Recipe DTO with respect to ID.
+     * @param recipe DTO Object
+     * @return response  DTO
+     */
     @PostMapping("/add")
     public ResponseEntity<RecipeDTO> createRecipe(@Valid @RequestBody RecipeDTO recipe)
                                                     throws ObjectCreationException {
@@ -48,6 +62,11 @@ public class RecipeController
         return new ResponseEntity<RecipeDTO>(created, new HttpHeaders(), HttpStatus.CREATED);
     }
 
+    /**
+     * Method to update the Recipe DTO .
+     * @param recipe DTO Object
+     * @return response  DTO
+     */
     @PutMapping("/update")
     public ResponseEntity<RecipeDTO> updateRecipe(@Valid @RequestBody RecipeDTO recipe)
             throws RecordNotFoundException {
@@ -55,7 +74,12 @@ public class RecipeController
         logger.info("Recipe record Updated ");
         return new ResponseEntity<RecipeDTO>(updated, new HttpHeaders(), HttpStatus.OK);
     }
- 
+
+    /**
+     * Method to delete the Recipe with respect id.
+     * @param id
+     * @return response  string
+     */
     @DeleteMapping("delete/{id}")
     public ResponseEntity<String> deleteRecipe(@PathVariable("id") Long id)
                                                     throws RecordNotFoundException {

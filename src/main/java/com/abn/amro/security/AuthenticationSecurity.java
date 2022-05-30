@@ -16,6 +16,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableWebSecurity
 public class AuthenticationSecurity extends WebSecurityConfigurerAdapter {
 
+    /**
+     * Any matching request prompting for the login URL
+     *
+     * @param http request data
+     * @return void
+     */
     protected void configure(final HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/swagger-ui/**", "/recipe/**").permitAll()
@@ -24,6 +30,12 @@ public class AuthenticationSecurity extends WebSecurityConfigurerAdapter {
                 .httpBasic();
     }
 
+    /**
+     * AuthenticationManager will authenticate user with "username" and "password"
+     *
+     * @param auth request data
+     * @return void
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
